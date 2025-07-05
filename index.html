@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Match Challenge Pro</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Rubik:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="particles" id="particles"></div>
+    
+    <div class="container">
+        <div class="header">
+            <h1>COLOR MATCH PRO</h1>
+            <P>Don't forget the vote🫡</P>
+            <p>Test your color perception skills and climb the leaderboard!</p>
+        </div>
+        
+        <div class="game-info">
+            <div class="info-item">
+                <div class="info-label">SCORE</div>
+                <div class="info-value" id="score-value">0</div>
+            </div>
+            <div class="info-item">
+                <div class="info-label">LEVEL</div>
+                <div class="info-value" id="level-value">1</div>
+            </div>
+            <div class="info-item">
+                <div class="info-label">LIVES</div>
+                <div class="info-value" id="lives-value">❤️❤️❤️</div>
+            </div>
+            <div class="info-item">
+                <div class="info-label">COMBO</div>
+                <div class="info-value" id="combo-value">1x</div>
+            </div>
+        </div>
+        
+        <div class="game-area">
+            <div class="difficulty">
+                <div class="difficulty-btn active" data-diff="easy">Easy</div>
+                <div class="difficulty-btn" data-diff="medium">Medium</div>
+                <div class="difficulty-btn" data-diff="hard">Hard</div>
+            </div>
+            
+            <div class="instructions">
+                <h3>HOW TO PLAY</h3>
+                <ul>
+                    <li>Match the displayed color to its correct name</li>
+                    <li>Correct answers increase your streak and score</li>
+                    <li>Wrong answers reset your streak and cost a life</li>
+                    <li>Use power-ups strategically to boost your game</li>
+                    <li>Complete levels to unlock harder challenges</li>
+                </ul>
+            </div>
+            
+            <div class="level-progress">
+                <div class="level-bar" id="level-bar"></div>
+            </div>
+            
+            <div class="color-display" id="color-display"></div>
+            
+            <div class="power-ups">
+                <div class="power-up" id="time-freeze" data-power="time">
+                    <i class="fas fa-clock"></i>
+                    <span class="power-up-tooltip">Freeze Timer (3 uses)</span>
+                </div>
+                <div class="power-up" id="double-points" data-power="double">
+                    <i class="fas fa-star"></i>
+                    <span class="power-up-tooltip">Double Points (2 uses)</span>
+                </div>
+                <div class="power-up" id="skip-question" data-power="skip">
+                    <i class="fas fa-forward"></i>
+                    <span class="power-up-tooltip">Skip Question (5 uses)</span>
+                </div>
+                <div class="power-up" id="extra-life" data-power="life">
+                    <i class="fas fa-heart"></i>
+                    <span class="power-up-tooltip">Extra Life (1 use)</span>
+                </div>
+            </div>
+            
+            <div class="options">
+                <div class="option" data-option="1">Option 1</div>
+                <div class="option" data-option="2">Option 2</div>
+                <div class="option" data-option="3">Option 3</div>
+                <div class="option" data-option="4">Option 4</div>
+            </div>
+            
+            <div class="timer">
+                <div class="timer-bar" id="timer-bar"></div>
+            </div>
+            
+            <div class="controls">
+                <button id="start-btn"><i class="fas fa-play"></i> START GAME</button>
+                <button id="reset-btn"><i class="fas fa-redo"></i> RESET GAME</button>
+                <button id="pause-btn"><i class="fas fa-pause"></i> PAUSE</button>
+            </div>
+            
+            <div class="achievements">
+                <h3>ACHIEVEMENTS</h3>
+                <div class="achievement-grid">
+                    <div class="achievement">
+                        <i class="fas fa-trophy"></i>
+                        <h4>Color Master</h4>
+                        <p>Score 500+ points</p>
+                    </div>
+                    <div class="achievement">
+                        <i class="fas fa-bolt"></i>
+                        <h4>Quick Thinker</h4>
+                        <p>Answer 10 in a row</p>
+                    </div>
+                    <div class="achievement">
+                        <i class="fas fa-infinity"></i>
+                        <h4>Unstoppable</h4>
+                        <p>Reach level 10</p>
+                    </div>
+                    <div class="achievement">
+                        <i class="fas fa-heart"></i>
+                        <h4>Survivor</h4>
+                        <p>Finish with 1 life</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="leaderboard">
+                <h3>LEADERBOARD</h3>
+                <ul class="leaderboard-list">
+                    <li class="leaderboard-item">
+                        <span class="leaderboard-position">1.</span>
+                        <span class="leaderboard-name">Yousef (Me🐣)</span>
+                        <span class="leaderboard-score">1250</span>
+                    </li>
+                    <li class="leaderboard-item">
+                        <span class="leaderboard-position">2.</span>
+                        <span class="leaderboard-name">RainbowWarrior</span>
+                        <span class="leaderboard-score">980</span>
+                    </li>
+                    <li class="leaderboard-item">
+                        <span class="leaderboard-position">3.</span>
+                        <span class="leaderboard-name">PixelPerfect</span>
+                        <span class="leaderboard-score">765</span>
+                    </li>
+                    <li class="leaderboard-item">
+                        <span class="leaderboard-position">4.</span>
+                        <span class="leaderboard-name">ChromaChamp</span>
+                        <span class="leaderboard-score">620</span>
+                    </li>
+                    <li class="leaderboard-item">
+                        <span class="leaderboard-position">5.</span>
+                        <span class="leaderboard-name">HueHunter</span>
+                        <span class="leaderboard-score">580</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="social">
+            <div class="social-btn facebook"><i class="fab fa-facebook-f"></i></div>
+            <div class="social-btn twitter"><i class="fab fa-twitter"></i></div>
+            <div class="social-btn share"><i class="fas fa-share-alt"></i></div>
+        </div>
+    </div>
+    
+    <div class="message" id="message"></div>
+    <div class="combo-display" id="combo-display">Combo: 1x</div>
+    <div class="bonus-notification" id="bonus-notification">DOUBLE POINTS!</div>
+
+    <script src="script.js"></script>
+</body>
+</html>
